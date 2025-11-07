@@ -1,0 +1,16 @@
+class Solution {
+public:
+    string decodeMessage(string key, string msg) {
+        unordered_map<char, char> mp;
+        char ch = 'a';
+        for (char c : key) 
+            if (c != ' ' && !mp.count(c)) 
+                mp[c] = ch++;
+        
+        string res = "";
+        for (char c : msg) 
+            res += (c == ' ' ? ' ' : mp[c]);
+        
+        return res;
+    }
+};
